@@ -1,0 +1,30 @@
+# OS files
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Backend (back-ppdb)
+back-ppdb/ppdb-service
+back-ppdb/vendor/
+back-ppdb/bin/
+back-ppdb/tmp/
+
+# Frontend (front-ppdb)
+front-ppdb/node_modules/
+front-ppdb/dist/
+front-ppdb/build/
+front-ppdb/.next/
+front-ppdb/npm-debug.log*
+front-ppdb/yarn-debug.log*
+front-ppdb/yarn-error.log*
+front-ppdb/.pnp
+front-ppdb/.pnp.js
