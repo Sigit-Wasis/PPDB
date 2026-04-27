@@ -8,7 +8,8 @@ import (
 
 type User struct {
 	ID        uuid.UUID `gorm:"type:uuid;primary_key;default:gen_random_uuid()" json:"id"`
-	Email     string    `gorm:"uniqueIndex;not null" json:"email"`
+	TenantID  uuid.UUID `gorm:"type:uuid;not null" json:"tenant_id"`
+	Email     string    `gorm:"not null" json:"email"`
 	Password  string    `json:"-"` // Hidden from JSON responses
 	Role      string    `gorm:"default:'student'" json:"role"` // student, admin
 	CreatedAt time.Time `json:"created_at"`

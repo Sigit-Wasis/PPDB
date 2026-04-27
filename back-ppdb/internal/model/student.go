@@ -9,9 +9,10 @@ import (
 
 type Student struct {
 	ID                uuid.UUID      `gorm:"type:uuid;primary_key;default:gen_random_uuid()" json:"id"`
+	TenantID          uuid.UUID      `gorm:"type:uuid;not null" json:"tenant_id"`
 	UserID            uuid.UUID      `gorm:"type:uuid" json:"user_id"`
-	NISN              string         `gorm:"uniqueIndex;not null" json:"nisn"`
-	NIK               string         `gorm:"uniqueIndex" json:"nik"`
+	NISN              string         `gorm:"not null" json:"nisn"`
+	NIK               string         `json:"nik"`
 	FullName          string         `gorm:"not null" json:"full_name"`
 	Gender            string         `json:"gender"`
 	BirthPlace        string         `json:"birth_place"`
@@ -73,13 +74,15 @@ type AcademicRecord struct {
 }
 
 type Major struct {
-	ID   uuid.UUID `gorm:"type:uuid;primary_key" json:"id"`
-	Code string    `json:"code"`
-	Name string    `json:"name"`
+	ID       uuid.UUID `gorm:"type:uuid;primary_key" json:"id"`
+	TenantID uuid.UUID `gorm:"type:uuid;not null" json:"tenant_id"`
+	Code     string    `json:"code"`
+	Name     string    `json:"name"`
 }
 
 type Registration struct {
 	ID             uuid.UUID `gorm:"type:uuid;primary_key" json:"id"`
+	TenantID       uuid.UUID `gorm:"type:uuid;not null" json:"tenant_id"`
 	StudentID      uuid.UUID `gorm:"type:uuid" json:"student_id"`
 	Major1ID       uuid.UUID `gorm:"type:uuid" json:"major_1_id"`
 	Major2ID       uuid.UUID `gorm:"type:uuid" json:"major_2_id"`
